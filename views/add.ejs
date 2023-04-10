@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+        .contrainer {
+            width: 960px;
+        }
+        h1,h3{
+            margin: 1rem 0;
+        }
+        input,select,button{
+            width: 100%;
+            height: 2rem;
+        }
+        textarea{
+            width: 100%;
+        }
+        button {
+            background-color: rgba(20, 20, 195, 0.701);
+        }
+    </style>
+</head>
+
+<body>
+    <form class="contrainer" method="post" action="/account">
+        <h1>添加记录</h1>
+        <hr>
+        <section>
+            <h3>事项</h3>
+            <input type="name" name="name" id="">
+        </section>
+        <section>
+            <h3>发生时间</h3>
+            <input type="date" name="date" id="">
+        </section>
+        <section>
+            <h3>类型</h3>
+            <select name="type" id="">
+                <option value="支出" selected>支出</option>
+                <option value="收入">收入</option>
+            </select>
+        </section>
+        <section>
+            <h3>金额</h3>
+            <input type="number" name="money" id="">
+        </section>
+        <section>
+            <h3>备注</h3>
+            <textarea name="remark" id="" cols="30" rows="5"></textarea>
+        </section>
+        <hr>
+        <button>添加</button>
+    </form>
+    <script>
+        const myDate = new Date().toJSON()
+        const dateControl = document.querySelector('input[type="date"]')
+        let value = myDate.slice(0,myDate.indexOf('T'))
+        console.log(value);
+        dateControl.value = value
+        // const dateControl = document.querySelector('input[type="date"]');
+        // dateControl.value = new Date().toLocaleDateString().split('/').join('-');
+    </script>
+</body>
+
+</html>
