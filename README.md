@@ -14,11 +14,11 @@ node.js、express + express-gennerator、HTML + EJS模板引擎、Mongondb + Mon
 3、运行 npm start   访问地址：http://127.0.0.1:3000/
 ```
 ### 运行截图
+添加账单
+<img src="https://github.com/BirdGurhl/Pocket-book/blob/master/%E6%B7%BB%E5%8A%A0%E8%B4%A6%E5%8D%95.png" alt="" width="400px">
 
-    <img src="https://github.com/BirdGurhl/Pocket-book/blob/master/%E6%B7%BB%E5%8A%A0%E8%B4%A6%E5%8D%95.png" alt="" width="400px">
+账单列表
+<img src="https://github.com/BirdGurhl/Pocket-book/blob/master/%E8%B4%A6%E5%8D%95%E5%88%97%E8%A1%A8.png" alt="" width="400px">
 
 
-    <img src="https://github.com/BirdGurhl/Pocket-book/blob/master/%E8%B4%A6%E5%8D%95%E5%88%97%E8%A1%A8.png" alt="" width="400px">
-
-
-    <img src="https://github.com/BirdGurhl/Pocket-book/blob/master/%E8%B4%A6%E5%8D%95%E5%88%97%E8%A1%A81.png" alt="" width="400px">
+<img src="https://github.com/BirdGurhl/Pocket-book/blob/master/%E8%B4%A6%E5%8D%95%E5%88%97%E8%A1%A81.png" alt="" width="400px">
