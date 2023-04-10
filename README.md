@@ -15,11 +15,11 @@ node.js、express + express-gennerator、HTML + EJS模板引擎、Mongondb + Mon
 ```
 ### 运行截图
 ```
-    <img src="https://github.com/BirdGurhl/Pocket-book/添加账单.png" alt="" width="400px">
+    <img src="https://github.com/BirdGurhl/Pocket-book/blob/master/%E6%B7%BB%E5%8A%A0%E8%B4%A6%E5%8D%95.png" alt="" width="400px">
 ```
 ```
-    <img src="https://github.com/BirdGurhl/Pocket-book/账单列表.png" alt="" width="400px">
+    <img src="https://github.com/BirdGurhl/Pocket-book/blob/master/%E8%B4%A6%E5%8D%95%E5%88%97%E8%A1%A8.png" alt="" width="400px">
 ```
 ```
-    <img src="https://github.com/BirdGurhl/Pocket-book/账单列表1.png" alt="" width="400px">
+    <img src="https://github.com/BirdGurhl/Pocket-book/blob/master/%E8%B4%A6%E5%8D%95%E5%88%97%E8%A1%A81.png" alt="" width="400px">
 ```
