@@ -2,7 +2,13 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-a {
-  color: #00B7FF;
+* {
+  margin: 0 auto;
+  padding: 0;
+}
+.contrainer {
+  width: 960px;
+}
+h1,h3{
+  margin: 1rem 0;
 }

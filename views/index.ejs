@@ -1,16 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <form action="/portrait" method="post" enctype="multipart/form-data">
-      用户名：<input type="text" name="name" id="">
-      上传: <input type="file" name="portrait" id="">
-      <button>提交</button>
-    </form>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+    body {
+      width: 500px;
+    }
+    input:not([type="checkbox"]),
+    button {
+      width: 100%;
+      margin: 0 auto;
+      height: 2rem;
+    }
+    button {
+      margin-top: 2em;
+      background-color: rgba(20, 20, 195, 0.701);
+    }
+    .save {
+      margin-top: 0.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <hr>
+  <form class="container" action="<%= url %>" method="post">
+    <section>
+      <h3>用户名</h3>
+      <input type="text" name="name" id="">
+    </section>
+    <section>
+      <h3>密码</h3>
+      <input type="password" name="password" id="">
+    </section>
+    <hr>
+    <% if(title == "登录") { %>
+    <div class="save"><input type="checkbox" name="save" id="save"><label for="save">7天免登录</label></div>
+    <% } %>
+    <button><%= title %></button>
+  </form>
+</body>
+
 </html>
