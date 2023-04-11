@@ -21,7 +21,7 @@ app.use(session({
     store: mongoStore.create({ mongoUrl: `mongodb://${DBHOST}:${DBPORT}/${DBNAME}` }),   // session 存储方式,connect-mongo 中间件会自动完成session在数据库中的增删改查，默认集合名 sessions
     cookie: {
         httpOnly: true,  // 开启后前端无法通过 document.cookie 获取cookie
-        maxAge: 1000 * 60 * 5   // 5分钟过期
+        maxAge: 1000 * 60 * 1   // 1分钟过期
     }
 }))
 
@@ -32,7 +32,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());  //body-player中间件 post请求数据解析
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('onepiece'));
 app.use(express.static(path.join(__dirname, 'public')));  //静态资源中间件 目录映射
 
 app.use('/', indexRouter);  //应用路由对象

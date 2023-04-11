@@ -18,12 +18,24 @@ router.get('/', function (req, res, next) {
 
 // 登录
 router.post('/login', function (req, res, next) {
-  console.log(req.body);
   let { name, password } = req.body
   if (!name || !password) return
   userModel.findOne({ name: name, password: md5(password) })
     .then(user => {
-      req.session.name = user.name
+      if (!req.session.name) {
+        req.session.name = user.name
+      }
+      // 如果用户选择“7天免登录”选项，则将maxAge设置为7天
+      if (req.body.save) {
+        req.session.cookie.maxAge = 7 * 24 * 60 * 60 * 1000; // 7天（以毫秒为单位）
+        console.log(req.cookies);
+        // res.cookie('sid', req.cookies.sid, { maxAge: 7 * 24 * 60 * 60 * 1000 });
+        res.cookie('sid', req.session.id, { maxAge: 7 * 24 * 60 * 60 * 1000 ,signed:true}); // 如果直接使用服务器上的sessionid,要签名
+      } else {
+        req.session.cookie.maxAge = 60 * 1000; // 1分钟
+        // res.cookie('sid', req.cookies.id, { maxAge: 60 * 1000 });
+        res.cookie('sid', req.session.id, { maxAge: 60 * 1000 ,signed:true}); // 如果直接使用服务器上的sessionid,要签名
+      }
       res.redirect('/list')
     })
     .catch(err => {
@@ -52,7 +64,7 @@ router.post('/reg', function (req, res, next) {
 
 
 // 获取所有账单
-router.get('/list', function (req, res, next) {
+router.get('/list', checkLogin, function (req, res, next) {
   // 获取账本数据
   accountModel.find({}).sort({ date: -1 })
     .then(docs => {
@@ -65,7 +77,7 @@ router.get('/list', function (req, res, next) {
 });
 
 // 删除账单
-router.get('/list/:id', function (req, res, next) {
+router.get('/list/:id', checkLogin, function (req, res, next) {
   console.log(req.params);
   // 删除对应id的账单
   let { id } = req.params
@@ -80,12 +92,12 @@ router.get('/list/:id', function (req, res, next) {
 });
 
 // 添加账单页面
-router.get('/account', function (req, res, next) {
+router.get('/account', checkLogin, function (req, res, next) {
   res.render('add')
 });
 
 // 添加账单
-router.post('/account', function (req, res, next) {
+router.post('/account', checkLogin, function (req, res, next) {
 
   console.log('----req.body-----');
   console.log(req.body);

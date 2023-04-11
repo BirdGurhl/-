@@ -6,14 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <style>
-        input,select,button{
+        input,
+        select,
+        button {
             width: 100%;
             height: 2rem;
         }
-        textarea{
+
+        textarea {
             width: 100%;
         }
+
         button {
             background-color: rgba(20, 20, 195, 0.701);
         }
@@ -53,7 +58,7 @@
     <script>
         const myDate = new Date().toJSON()
         const dateControl = document.querySelector('input[type="date"]')
-        let value = myDate.slice(0,myDate.indexOf('T'))
+        let value = myDate.slice(0, myDate.indexOf('T'))
         console.log(value);
         dateControl.value = value
         // const dateControl = document.querySelector('input[type="date"]');

@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>记账本</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <style>
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .header a {
             margin: 0;
             /* line-height: 2.5em; */
@@ -19,6 +21,7 @@
             color: white;
             background-color: rgba(13, 13, 223, 0.732);
         }
+
         h1 {
             margin: 1rem 0;
         }
@@ -34,12 +37,15 @@
             padding-left: 1em;
             line-height: 2em;
         }
-        header.zhichu{
+
+        header.zhichu {
             background-color: pink;
         }
-        header.shouru{
+
+        header.shouru {
             background-color: lightgreen;
         }
+
         .content {
             display: flex;
             align-items: center;
@@ -63,9 +69,11 @@
             text-decoration: none;
             color: inherit;
         }
-        section:hover .content .delete{
+
+        section:hover .content .delete {
             opacity: 1;
         }
+
         .delete:hover {
             cursor: pointer;
             text-shadow: 1px 1px 2px #000;
@@ -76,7 +84,7 @@
             position: absolute;
             top: 0;
             left: 50%;
-            transform: translate(-50%,-100%);
+            transform: translate(-50%, -100%);
             padding: 8px;
             background-color: lightgoldenrodyellow;
             color: red;
@@ -87,8 +95,9 @@
             z-index: 999;
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
-            text-shadow:none
+            text-shadow: none
         }
+
         .delete:hover::after {
             opacity: 1;
         }
@@ -102,33 +111,41 @@
             <a href="/account">添加账单</a>
         </div>
         <hr>
-        <% if (bills.length > 0) { %>
+        <% if (bills.length> 0) { %>
             <% bills.forEach(function(bill) { %>
-            <section>
-                <header class="<%= bill.type == '支出' ? 'zhichu' : 'shouru'%>"><%= bill.date.toISOString().substring(0, 10) %></header>
-                <div class="content">
-                    <div class="name"><%= bill.name %></div>
-                    <span class="type"><%= bill.type %></span>
-                    <p><%= bill.money %>元</p>
-                    <a class="delete" href="/list/<%= bill.id %>">&times;</a>
-                </div>
-            </section>
-            <% }) %>
-    <% } else { %>
-    <p>暂无账单记录</p>
-    <% } %>
+                <section>
+                    <header class="<%= bill.type == '支出' ? 'zhichu' : 'shouru'%>">
+                        <%= bill.date.toISOString().substring(0, 10) %>
+                    </header>
+                    <div class="content">
+                        <div class="name">
+                            <%= bill.name %>
+                        </div>
+                        <span class="type">
+                            <%= bill.type %>
+                        </span>
+                        <p>
+                            <%= bill.money %>元
+                        </p>
+                        <a class="delete" href="/list/<%= bill.id %>">&times;</a>
+                    </div>
+                </section>
+                <% }) %>
+                    <% } else { %>
+                        <p>暂无账单记录</p>
+                        <% } %>
     </div>
 
     <script>
         let deleteBtns = document.querySelectorAll('.delete')
-        deleteBtns.forEach(deleteBtn =>{
-            deleteBtn.addEventListener('click',function(e) {
-            if (confirm('是否删除')) {
-                return true
-            }else {
-                e.preventDefault()
-            }
-        })
+        deleteBtns.forEach(deleteBtn => {
+            deleteBtn.addEventListener('click', function (e) {
+                if (confirm('是否删除')) {
+                    return true
+                } else {
+                    e.preventDefault()
+                }
+            })
         })
 
     </script>
