@@ -7,16 +7,21 @@ const userModel = require('../model/userModel');
 const checkLogin = function (req, res, next) {
   if (!req.session.name) {
     // 没有登录过
-    res.redirect('/')
+    res.redirect('/login')
   }
   next()
 }
 
 router.get('/', function (req, res, next) {
-  res.render('index', { title: '登录', url: '/login' })
+  res.redirect('/list')
 });
 
 // 登录
+router.get('/login', function (req, res, next) {
+  res.render('index', { title: '登录', url: '/login' })
+});
+
+
 router.post('/login', function (req, res, next) {
   let { name, password } = req.body
   if (!name || !password) return
