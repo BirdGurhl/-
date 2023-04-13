@@ -11,16 +11,35 @@
     body {
       width: 500px;
     }
+
     input:not([type="checkbox"]),
     button {
       width: 100%;
       margin: 0 auto;
       height: 2rem;
     }
+
     button {
       margin-top: 2em;
       background-color: rgba(20, 20, 195, 0.701);
     }
+
+    .footer {
+      margin-top: 0.5em;
+      display: flex;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .footer>* {
+      margin: 0;
+    }
+
+    .footer a {
+      color: blue;
+      text-decoration: underline;
+    }
+
     .save {
       margin-top: 0.5em;
     }
@@ -42,10 +61,15 @@
       <input type="password" name="password" id="">
     </section>
     <hr>
-    <% if(title == "登录") { %>
-    <div class="save"><input type="checkbox" name="save" id="save"><label for="save">7天免登录</label></div>
-    <% } %>
-    <button><%= title %></button>
+    <% if(title=="登录" ) { %>
+      <div class="footer">
+        <div class="save"><input type="checkbox" name="save" id="save"><label for="save">7天免登录</label></div>
+        <a href="/reg">注册</a>
+      </div>
+      <% } %>
+        <button>
+          <%= title %>
+        </button>
   </form>
 </body>
 
